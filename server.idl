@@ -1,0 +1,17 @@
+module Server {
+    typedef sequence<string> FileList;
+    struct ClientName {
+        string client_name;
+        FileList files;
+    };
+    typedef sequence<ClientName> ClientArray;
+
+    interface CentralServer {     
+        attribute ClientArray client_files;
+
+        ClientArray search(in string keyword);
+        string connect(in string client_name, in FileList files);
+        string update_files(in string client_name, in FileList files);
+        void disconnect(in string client_name);
+    };
+};

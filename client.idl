@@ -1,0 +1,15 @@
+module Client{
+    typedef sequence<octet> OctetSequence;
+    typedef sequence<string> PathList;
+    interface ClientServer {
+        attribute string path_file;
+        attribute PathList finish_download;
+        attribute PathList working_download;
+
+        string send_file(in string file_name);
+        string set_path_file(in string path);
+        PathList get_file_list();
+        void start_download(in string file_name);
+        void finish_to_download(in string file_name);
+    };
+};
