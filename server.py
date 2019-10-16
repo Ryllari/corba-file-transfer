@@ -23,6 +23,11 @@ class CentralServer(Server__POA.CentralServer):
         self.client_files.append(ClientName(client_name, files))
         return client_name
 
+    def disconnect(self, client_name):
+        for client in self.client_files:
+            if client.client_name == client_name:
+                self.client_files.remove(client)   
+
     def update_files(self, client_name, files):
         for client in self.client_files:
             if client.client_name == client_name:

@@ -104,7 +104,9 @@ while running:
 
     if option == '0':
         print("Tchau")
+        server.disconnect(name_server)
         running = False
+        sys.exit(1)
     
     elif option == '1':
         keyword = raw_input("Digite o termo a ser buscado: ")

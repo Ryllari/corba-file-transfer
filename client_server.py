@@ -16,7 +16,6 @@ class ClientServer(Client__POA.ClientServer):
     def send_file(self, file_name):
         data = ''
         with open(join(self.path_file,file_name), 'rb') as f:
-            print("entrou")
             for readed in read_in_chunks(f):
                 data += readed
         return data
